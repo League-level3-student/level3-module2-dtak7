@@ -53,7 +53,6 @@ public class HeapSorter extends Sorter {
 		// then set largest equal to r
 		if (r < n && array[r] > array[largest]) {
 			largest = r;
-			display.updateDisplay();
 		}
 		// 7. if largest is not equal to i
 		// then swap the array elements at i and largest.

@@ -14,12 +14,13 @@ public class MergeSorter extends Sorter {
 	void sort(int[] array, SortingVisualizer display) {
 		// 20. call the mergeSort method with 0 and the length of the array minus one
 		mergeSort(array, 0, array.length - 1, display);
+		display.updateDisplay();
 	}
 
 	private void mergeSort(int[] array, int low, int high, SortingVisualizer display) {
 		// 1. Create a temporary integer array that is the same length as the passed in
 		// array.
-		int[] intArray = new int[array.length];
+		int[] tempArray = new int[array.length];
 		// 2. make an if statement that checks if low is less than high
 		// and put the rest of the method inside of it
 		if (low < high) {
@@ -33,8 +34,7 @@ public class MergeSorter extends Sorter {
 			// 6. copy the elements from the array into the temporary array,
 			// but only the elements from low to high inclusive
 			for (int i = low; i <= high; i++) {
-				intArray[i] = array[i];
-				display.updateDisplay();
+				tempArray[i] = array[i];
 			}
 			// 7. create three integers called i, j, and k and
 			// set them equal to low, middle + 1, and low respectively
@@ -46,33 +46,34 @@ public class MergeSorter extends Sorter {
 			while (i <= middle && j <= high) {
 				// 9. if temp array at i is less than or equal
 				// to temp array at j
-				if (intArray[i] <= intArray[j]) {
+				if (tempArray[i] <= tempArray[j]) {
 					// 10. set array at k equal to temp array at i
-					array[k] = intArray[i];
+					array[k] = tempArray[i];
 					// 11. increase i by 1
-					i += 1;
+					i++;
 					display.updateDisplay();
 				}
 				// 13. else
 				else {
 					// 14. set array at k equal to temp array at j
-					array[k] = intArray[j];
+					array[k] = tempArray[j];
 					// 15. increase j by 1
-					j += 1;
-					// 16. increase k by 1
-
+					j++;
 					display.updateDisplay();
 				}
-				k += 1;
+				// 16. increase k by 1
+				k++;
+				display.updateDisplay();
 				// 17. make a while loop that runs while i is less than or equal to middle
-				while (i <= middle) {
-					// 18. set array at k equal to temp array at i
-					array[k] = intArray[i];
-					// 19. increase k and i by 1
-					k += 1;
-					i += 1;
-					display.updateDisplay();
-				}
+			}
+			while (i <= middle) {
+				// 18. set array at k equal to temp array at i
+				array[k] = tempArray[i];
+				// 19. increase k and i by 1
+				k++;
+				i++;
+				display.updateDisplay();
+
 			}
 		}
 	}
