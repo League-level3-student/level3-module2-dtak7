@@ -22,14 +22,43 @@ public class Algorithms {
 	}
 
 	public static double findTallest(List<Double> peeps) {
-		int largest = 0;
-		int contestant = 0;
+		double largest = 0;
+		double contestant = 0;
 		for (int i = 0; i < peeps.size(); i++) {
-			contestant = i;
+			contestant = peeps.get(i);
 			if (contestant > largest) {
-				contestant = largest;
+				largest = contestant;
 			}
 		}
 		return largest;
+	}
+
+	public static Object findLongestWord(List<String> words) {
+		String largest = "";
+		String contestant = "";
+		for (int i = 0; i < words.size(); i++) {
+			contestant = words.get(i);
+			if (contestant.length() > largest.length()) {
+				largest = contestant;
+			}
+		}
+		return largest;
+	}
+
+	public static Object containsSOS(List<String> message1) {
+		String hold = "";
+		for (int i = 0; i < message1.size(); i++) {
+			hold = message1.get(i);
+			if (hold.equals("... --- ...")) {
+				System.out.println("yay");
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static List<String> sortScores(List<Double> results) {
+		for(int i = 0; i<results.size();i++)
+		return null;
 	}
 }
