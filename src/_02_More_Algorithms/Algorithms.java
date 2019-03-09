@@ -1,5 +1,6 @@
 package _02_More_Algorithms;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Algorithms {
@@ -50,15 +51,43 @@ public class Algorithms {
 		for (int i = 0; i < message1.size(); i++) {
 			hold = message1.get(i);
 			if (hold.equals("... --- ...")) {
-				System.out.println("yay");
 				return true;
 			}
 		}
 		return false;
 	}
 
-	public static List<String> sortScores(List<Double> results) {
-		for(int i = 0; i<results.size();i++)
+	public static Object sortDNA(List<String> unsortedSequences) {
+
 		return null;
 	}
+
+	public static List<String> sortScores(List<Double> results) {
+		double one = 0;
+		double two = 0;
+		List<String> plsSort = new ArrayList<String>();
+		for (int i = 0; i < results.size() - 1; i++) {
+			for (int j = i + 1; j < results.size(); j++) {
+				one = results.get(i);
+				two = results.get(j);
+				if (one > two) {
+					double temp = two;
+					one = two;
+					two = temp;
+					plsSort.add(one + "");
+					plsSort.add(two + "");
+				}
+			}
+		}
+
+		List<String> done = new ArrayList<String>();
+		for (int i = 0; i < results.size(); i++) {
+
+			done.addAll(plsSort);
+		}
+		System.out.println(done);
+		return done;
+
+	}
+
 }
