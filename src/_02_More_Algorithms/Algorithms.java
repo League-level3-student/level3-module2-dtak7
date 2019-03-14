@@ -1,6 +1,5 @@
 package _02_More_Algorithms;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class Algorithms {
@@ -57,37 +56,45 @@ public class Algorithms {
 		return false;
 	}
 
-	public static Object sortDNA(List<String> unsortedSequences) {
-
-		return null;
-	}
-
-	public static List<String> sortScores(List<Double> results) {
-		double one = 0;
-		double two = 0;
-		List<String> plsSort = new ArrayList<String>();
+	public static List<Double> sortScores(List<Double> results) {
 		for (int i = 0; i < results.size() - 1; i++) {
 			for (int j = i + 1; j < results.size(); j++) {
-				one = results.get(i);
-				two = results.get(j);
-				if (one > two) {
-					double temp = two;
-					one = two;
-					two = temp;
-					plsSort.add(one + "");
-					plsSort.add(two + "");
+				if (results.get(i) > results.get(j)) {
+					double temp = results.get(i);
+					results.set(i, results.get(j));
+					results.set(j, temp);
 				}
 			}
 		}
 
-		List<String> done = new ArrayList<String>();
-		for (int i = 0; i < results.size(); i++) {
+		return results;
 
-			done.addAll(plsSort);
+	}
+
+	public static List<String> sortDNA(List<String> unsortedSequences) {
+		for (int i = 0; i < unsortedSequences.size() - 1; i++) {
+			for (int j = i + 1; j < unsortedSequences.size(); j++) {
+				if (unsortedSequences.get(i).length() > unsortedSequences.get(j).length()) {
+					String temp = unsortedSequences.get(i);
+					unsortedSequences.set(i, unsortedSequences.get(j));
+					unsortedSequences.set(j, temp);
+				}
+			}
 		}
-		System.out.println(done);
-		return done;
+		return unsortedSequences;
+	}
 
+	public static List<String> sortWords(List<String> words) {
+		for (int i = 0; i < words.size() - 1; i++) {
+			for (int j = i + 1; j < words.size(); j++) {
+				if (words.get(i).compareTo(words.get(j)) > 0) {
+					String temp = words.get(i);
+					words.set(i, words.get(j));
+					words.set(j, temp);
+				}
+			}
+		}
+		return words;
 	}
 
 }
