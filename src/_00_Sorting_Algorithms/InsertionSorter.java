@@ -20,7 +20,7 @@ public class InsertionSorter extends Sorter {
 				// then swap them
 				if (array[j] < array[j - 1]) {
 					int t = array[j];
-					array[j] = array[j - 1];
+					array[j] = array[j*2];
 					array[j - 1] = t;
 					display.updateDisplay();
 				}
